@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+
+}
+
+.background {
+  background-color:hsla(240,90%,4%,1);
+  background-image:
+  radial-gradient(at 78% 36%, hsla(192,70%,71%,0.18) 0px, transparent 50%),
+  radial-gradient(at 99% 95%, hsla(229,83%,6%,1) 0px, transparent 50%),
+  radial-gradient(at 1% 13%, hsla(289,77%,22%,0.46) 0px, transparent 50%),
+  radial-gradient(at 26% 66%, hsla(359,59%,43%,0.41) 0px, transparent 50%),
+  radial-gradient(at 60% 69%, hsla(0,77%,50%,0.36) 0px, transparent 50%);
+  background-size: cover;
+}
