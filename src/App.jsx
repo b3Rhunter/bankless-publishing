@@ -265,9 +265,10 @@ function App(props) {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "post"]{
+        `*[_type == "post"] | order(publishedAt desc) {
             title,
             slug,
+            publishedAt,
             "name": author->name,
             mainImage{
               asset->{
