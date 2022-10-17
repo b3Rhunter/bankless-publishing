@@ -55,9 +55,9 @@ const { ethers } = require("ethers");
 const initialNetwork = NETWORKS.polygon; // <------- select your target frontend network (localhost, goerli, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
-const DEBUG = false;
+const DEBUG = true;
 const NETWORKCHECK = true;
-const USE_BURNER_WALLET = false; // toggle burner wallet feature
+const USE_BURNER_WALLET = true; // toggle burner wallet feature
 const USE_NETWORK_SELECTOR = false;
 
 const web3Modal = Web3ModalSetup();
@@ -271,7 +271,7 @@ function App(props) {
             publishedAt,
             "name": author->name,
             mainImage{
-              asset->{
+              asset->{ 
                 _id,
                 url
               }
@@ -319,8 +319,8 @@ function App(props) {
       <Button         
       style={{
         position: "fixed",
-        bottom: "10px",
-        left: "10px",
+        top: "80px",
+        right: "10px",
         display: "block",
         width: "auto",
         cursor: "pointer",
@@ -329,7 +329,7 @@ function App(props) {
          type="default" danger 
          >Buy Bank</Button>
 
-      <div className="min-h-screen p-12">
+      <div className="p-12" style={{marginBottom: "0px"}}>
       <div className="container mx-auto">
 
       <img className="flex logo" style={{paddingTop: "100px"}} src={Logo} alt="logo"></img>
