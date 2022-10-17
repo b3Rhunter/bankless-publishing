@@ -81,6 +81,7 @@ export default function Address(props) {
         {props.onChange ? (
           <Text editable={{ onChange: props.onChange }} >
             <a
+            className="addressDisplay"
               style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
               target="_blank"
               href={etherscanLink}
@@ -92,6 +93,7 @@ export default function Address(props) {
         ) : (
           <Text >
             <a
+            className="addressDisplay"
               style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
               target="_blank"
               href={etherscanLink}
