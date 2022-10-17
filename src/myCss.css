@@ -9,6 +9,23 @@
     background-size: cover;
 }
 
+.addressDisplay {
+  background: #460096;
+  background: linear-gradient(to right, #a29fff 0%, #ff6868 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+
+}
+
+.addressDisplay:hover {
+  background: #460096;
+  background: linear-gradient(to left, #a29fff 0%, #ff6868 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
 .button {
     background-color: #d02128;
     border: 1px solid;
