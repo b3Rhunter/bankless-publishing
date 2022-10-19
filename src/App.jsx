@@ -26,7 +26,7 @@ import Logo from "./images/bp_logo_512.png";
 import "./myCss.css";
 import OnePost from "./OnePost";
 import AllPosts from "./AllPosts";
-
+import imageUrlBuilder from "@sanity/image-url";
 
 
 
@@ -262,23 +262,29 @@ function App(props) {
     });
   };
 
+  const builder = imageUrlBuilder(sanityClient);
+  function urlFor(source) {
+    return builder.image(source);
+  }
+
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "post"] | order(publishedAt desc) {
+        `*[_type == "post"] | order(publishedAt desc){
             title,
             slug,
             publishedAt,
             "name": author->name,
+            "authorImage": author->image,
             mainImage{
-              asset->{ 
+              asset->{
                 _id,
                 url
               }
             }
-          }`
+          }`,
       )
-      .then((data) => setAllPosts(data))
+      .then(data => setAllPosts(data))
       .catch(console.error);
   }, []);
 
