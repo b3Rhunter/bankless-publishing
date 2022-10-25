@@ -27,9 +27,48 @@ import "./myCss.css";
 import OnePost from "./OnePost";
 import AllPosts from "./AllPosts";
 import imageUrlBuilder from "@sanity/image-url";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 
+const CustomForm = ({ status, message, onValidated }) => {
 
+  const sendNotification = (type, data) => {
+    return notification[type]({
+      ...data,
+      placement: "bottomRight",
+    });
+  };
+
+  let email;
+  const submit = () =>
+    email &&
+    email.value.indexOf("@") > -1 &&
+    onValidated({
+      EMAIL: email.value
+    });
+
+    return (
+      <div>
+     
+        {status === "success" && 
+                sendNotification("success", {
+                  message: "Subscribed!",
+                  description: `Thank you for subscribing to Good Morning News`,
+                })
+        }
+        <input
+          style={{ fontSize: "1em", padding: 5, borderRadius: "5px", backgroundColor: "rgba(255,255,255,0.1)", marginRight: "5px" }}
+          ref={node => (email = node)}
+          type="email"
+          placeholder="email"
+        />
+
+        <button className="sub-btn" style={{ fontSize: "1em", padding: 5, marginTop: "10px", border: "1px solid #fff", borderRadius: "10px" }} onClick={submit}>
+          Subscribe
+        </button>
+      </div>
+    );
+  };
 
 const { ethers } = require("ethers");
 /*
@@ -290,8 +329,34 @@ function App(props) {
 
   console.log(allPostsData);
 
+  function search() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value;
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
   return (
     <div className="App background">
+
+<div className="adSpace2">
+  <h6 className="adText2">Your</h6>
+  <h6 className="adText2">Ad Here</h6>
+</div>
+
       {/* ✏️ Edit the header and change the title to your project name */}
       <Header>
         {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
@@ -322,11 +387,29 @@ function App(props) {
         </div>
       </Header>
 
+      {isAuth && (
+      <><div className="subscribe">
+          <MailchimpSubscribe
+            url="https://gmail.us21.list-manage.com/subscribe/post?u=9dac44c0db4dc93dfe2c9fec9&id=d51751ba11"
+            render={({ subscribe, status, message }) => (
+              <CustomForm
+                status={status}
+                message={message}
+                onValidated={formData => subscribe(formData)} />
+            )} />
+        </div><div className="editorContainer">
+            <a href="https://gmn-sanity.vercel.app/" target="_blank" rel="noreferrer">
+              <h6 className="editorText">Editors</h6>
+            </a>
+          </div></>
+      
+)}
+
       <Button         
       style={{
         position: "fixed",
         top: "80px",
-        right: "10px",
+        left: "10px",
         display: "block",
         width: "auto",
         cursor: "pointer",
@@ -788,16 +871,31 @@ function App(props) {
         </Button>
       )}
 
-      <input style={{marginBottom: "10px", border: "1px solid #fff", borderRadius: "5px", paddingLeft: "5px", backgroundColor: "rgba(255,255,255,0.1)"}} placeholder="search..."></input>
-
-  
+{isAuth && (
+        
+        <><input type="text" id="myInput" onKeyUp={search} className="searchBar" placeholder="Search..."></input><div>
+            <ul id="myUL">
+              {allPostsData &&
+                allPostsData.map((post, index) => (
+                  <li style={{ display: "none" }}>
+                    <Link to={"/" + post.slug.current} key={post.slug.current}>
+                      <a onClick={changeContent}>
+                        {post.title}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </div></>
+    
+        )}
 
       </div>
       </div>
 
       {single ? (
 
-      <div className="min-h-screen p-12">
+      <div className="min-h-screen p-12" style={{zIndex: "1"}}>
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allPostsData &&

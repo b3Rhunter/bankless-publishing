@@ -16,6 +16,37 @@ code {
 @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
 
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .cursive {
   font-family: "Amatic SC", cursive;
   font-weight: 700;
@@ -26,3 +57,78 @@ code {
   margin-right: auto;
   border-radius: 5px;
 }
+
+.sub-btn {
+  transition: 2s;
+
+}
+
+.sub-btn:hover {
+  background-color:hsla(0,0%,0%,1);
+  background-image:
+  radial-gradient(at 40% 20%, hsla(0,14%,19%,0.45) 0px, transparent 50%),
+  radial-gradient(at 80% 0%, hsla(27,38%,13%,0.43) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, hsla(23,35%,18%,0.38) 0px, transparent 50%),
+  radial-gradient(at 80% 50%, hsla(35,20%,8%,0.36) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, hsla(16,11%,17%,0.34) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, hsla(39,37%,15%,0.32) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(45,39%,16%,0.29) 0px, transparent 50%);
+    background-size: cover;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    color: rgb(195, 167, 132);
+}
+
+.subscribe {
+  position: fixed;
+  top: 65px;
+  right: 20px;
+  z-index: 0;
+  color: #ffffff;
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(255,255,255,0);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid #fff;
+  animation: 1s ease-out 0s 1 slideInFromTop;
+}
+
+.searchBar {
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.1);
+  transition: transform .2s;
+  animation: 1s ease-out 0s 1 slideInFromBottom;
+  z-index: 1;
+}
+
+.adSpace2 {
+  width: 175px;
+  height: 175px;
+  position: fixed;
+  right: 20px;
+  top: 150px;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding-top: 55px;
+  transition: transform .5s;
+  animation: 1.5s ease-out 0s 1 slideInFromRight;
+}
+
+
+.adText2 {
+  font-family: monospace;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+  margin: auto;
+}
+
+
