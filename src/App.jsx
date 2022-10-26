@@ -28,6 +28,9 @@ import OnePost from "./OnePost";
 import AllPosts from "./AllPosts";
 import imageUrlBuilder from "@sanity/image-url";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import twitterLogo from "./images/twitterLogo.svg";
+import substackLogo from "./images/substackLogo.svg";
+import discordLogo from "./images/discordLogo.svg";
 
 
 const CustomForm = ({ status, message, onValidated }) => {
@@ -397,26 +400,44 @@ function App(props) {
                 message={message}
                 onValidated={formData => subscribe(formData)} />
             )} />
-        </div><div className="editorContainer">
-            <a href="https://gmn-sanity.vercel.app/" target="_blank" rel="noreferrer">
-              <h6 className="editorText">Editors</h6>
-            </a>
-          </div></>
-      
+        </div></>
 )}
 
-      <Button         
-      style={{
-        position: "fixed",
-        top: "80px",
-        left: "10px",
-        display: "block",
-        width: "auto",
-        cursor: "pointer",
-        zIndex: "10"
-         }}
-         type="default" danger 
-         >Buy Bank</Button>
+      <div className="editorContainer">
+            <a href="https://bankless-publishingj.sanity.studio/desk" target="_blank" rel="noreferrer">
+              <h6 className="editorText">Editors</h6>
+            </a>
+      </div>
+
+      <div className="twitterContainer">
+            <a href="https://twitter.com/BanklessPub" target="_blank" rel="noreferrer">
+              <img 
+              src={twitterLogo}
+              alt="twitter"
+              style={{width: "30px", height: "30px", transform: "rotate(-90deg)"}}
+              ></img>
+            </a>
+      </div>
+
+      <div className="substackContainer">
+            <a href="https://banklessdao.substack.com/" target="_blank" rel="noreferrer">
+              <img 
+              src={substackLogo}
+              alt="substack"
+              style={{width: "30px", height: "30px", transform: "rotate(-90deg)"}}
+              ></img>
+            </a>
+      </div>
+
+      <div className="discordContainer">
+            <a href="https://discord.gg/7A8VN73SEf" target="_blank" rel="noreferrer">
+              <img 
+              src={discordLogo}
+              alt="substack"
+              style={{width: "30px", height: "30px", transform: "rotate(-90deg)"}}
+              ></img>
+            </a>
+      </div>
 
       <div className="p-12" style={{marginBottom: "0px"}}>
       <div className="container mx-auto">

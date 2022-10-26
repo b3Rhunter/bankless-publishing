@@ -10,6 +10,101 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.twitterContainer {
+  position: fixed;
+  top: 175px;
+  left: 0px;
+  margin-left: -10px;
+  transform: rotate(90deg);
+  background-color: rgba(0, 0, 0, 0.33);
+  padding: 5px;
+  padding-bottom: 13px;
+  padding-top: 3px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border: 1px solid #fff;
+  transition: transform .2s;
+  z-index: 1000;
+  animation: 1.25s ease-out 0s 1 slideInFromLeft;
+}
+
+.twitterContainer:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.substackContainer {
+  position: fixed;
+  top: 225px;
+  left: 0px;
+  margin-left: -10px;
+  transform: rotate(90deg);
+  background-color: rgba(0, 0, 0, 0.33);
+  padding: 5px;
+  padding-bottom: 13px;
+  padding-top: 3px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border: 1px solid #fff;
+  transition: transform .2s;
+  z-index: 1000;
+  animation: 1.5s ease-out 0s 1 slideInFromLeft;
+}
+
+.substackContainer:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.discordContainer {
+  position: fixed;
+  top: 275px;
+  left: 0px;
+  margin-left: -10px;
+  transform: rotate(90deg);
+  background-color: rgba(0, 0, 0, 0.33);
+  padding: 5px;
+  padding-bottom: 13px;
+  padding-top: 3px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border: 1px solid #fff;
+  transition: transform .2s;
+  z-index: 1000;
+  animation: 1.75s ease-out 0s 1 slideInFromLeft;
+}
+
+.discordContainer:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.editorContainer {
+  position: fixed;
+  top: 120px;
+  left: 0px;
+  margin-left: -15px;
+  transform: rotate(90deg);
+  background-color: rgba(0, 0, 0, 0.33);
+  padding: 5px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border: 1px solid #fff;
+  transition: transform .2s;
+  z-index: 1000;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.editorContainer:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%) rotate(90deg);
+  }
+  100% {
+    transform: translateX(0) rotate(90deg);
+  }
+}
+
 /* src/index.css */
 
 @import url("https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css");
