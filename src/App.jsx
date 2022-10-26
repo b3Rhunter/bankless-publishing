@@ -420,7 +420,7 @@ function App(props) {
       </div>
 
       <div className="substackContainer">
-            <a href="https://banklessdao.substack.com/" target="_blank" rel="noreferrer">
+            <a href="https://banklessdao.substack.com/s/bankless-publishing" target="_blank" rel="noreferrer">
               <img 
               src={substackLogo}
               alt="substack"
@@ -430,7 +430,7 @@ function App(props) {
       </div>
 
       <div className="discordContainer">
-            <a href="https://discord.gg/7A8VN73SEf" target="_blank" rel="noreferrer">
+            <a href="https://discord.gg/Jqkz9Q8j" target="_blank" rel="noreferrer">
               <img 
               src={discordLogo}
               alt="substack"
