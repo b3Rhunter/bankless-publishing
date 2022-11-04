@@ -354,12 +354,12 @@ function App(props) {
 
   return (
     <div className="App background">
-
+{/*
 <div className="adSpace2">
   <h6 className="adText2">Your</h6>
   <h6 className="adText2">Ad Here</h6>
 </div>
-
+  */}
       {/* ✏️ Edit the header and change the title to your project name */}
       <Header>
         {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
@@ -615,7 +615,7 @@ function App(props) {
               userSigner,
             );
             const cost = "1000000000000000000";
-            const result = tx(contract.approve("0x5f8677d144E564D9eA9cf83Ce52B69ed320df8Ab", cost), update => {
+            const result = tx(contract.approve("0x90b1332b62B86f4AE23931ACa7fB42D65b08047b", cost), update => {
               console.log("📡 Transaction Update:", update);
               if (update && (update.status === "confirmed" || update.status === 1)) {
               
@@ -656,53 +656,8 @@ function App(props) {
             /* look how you call setPurpose on your contract: */
             /* notice how you pass a call back for tx updates too */
             const contract = new ethers.Contract(
-              "0x5f8677d144E564D9eA9cf83Ce52B69ed320df8Ab",
-              [
-                {
-                  inputs: [{ internalType: "address", name: "_BankToken", type: "address" }],
-                  stateMutability: "nonpayable",
-                  type: "constructor",
-                },
-                {
-                  anonymous: false,
-                  inputs: [
-                    { indexed: true, internalType: "address", name: "previousOwner", type: "address" },
-                    { indexed: true, internalType: "address", name: "newOwner", type: "address" },
-                  ],
-                  name: "OwnershipTransferred",
-                  type: "event",
-                },
-                {
-                  inputs: [],
-                  name: "BankToken",
-                  outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-                  stateMutability: "view",
-                  type: "function",
-                },
-                {
-                  inputs: [],
-                  name: "cost",
-                  outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-                  stateMutability: "view",
-                  type: "function",
-                },
-                {
-                  inputs: [],
-                  name: "owner",
-                  outputs: [{ internalType: "address", name: "", type: "address" }],
-                  stateMutability: "view",
-                  type: "function",
-                },
-                { inputs: [], name: "payPerView", outputs: [], stateMutability: "payable", type: "function" },
-                { inputs: [], name: "renounceOwnership", outputs: [], stateMutability: "nonpayable", type: "function" },
-                {
-                  inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
-                  name: "transferOwnership",
-                  outputs: [],
-                  stateMutability: "nonpayable",
-                  type: "function",
-                },
-              ],
+              "0x90b1332b62B86f4AE23931ACa7fB42D65b08047b",
+              [{"inputs":[{"internalType":"address","name":"_BankToken","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"BankPerView","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"BankToken","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"cost","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_newCost","type":"uint256"}],"name":"setCost","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}],
               userSigner,
             );
             const tokenContract = new ethers.Contract(
@@ -862,7 +817,7 @@ function App(props) {
               ],
               userSigner,
             );
-            const result = tx(contract.payPerView(), update => {
+            const result = tx(contract.BankPerView(), update => {
               console.log("📡 Transaction Update:", update);
               if (update && (update.status === "confirmed" || update.status === 1)) {
                 
@@ -888,7 +843,7 @@ function App(props) {
             console.log(await result);
           }}
         >
-          Bank-Per-View
+          BANK-Per-View
         </Button>
       )}
 

@@ -10,6 +10,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.web3modal-modal-lightbox { z-index: 1000 !important; }
+
 .twitterContainer {
   position: fixed;
   top: 175px;
