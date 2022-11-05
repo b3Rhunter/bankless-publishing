@@ -390,19 +390,6 @@ function App(props) {
         </div>
       </Header>
 
-      {isAuth && (
-      <><div className="subscribe">
-          <MailchimpSubscribe
-            url="https://gmail.us21.list-manage.com/subscribe/post?u=9dac44c0db4dc93dfe2c9fec9&id=d51751ba11"
-            render={({ subscribe, status, message }) => (
-              <CustomForm
-                status={status}
-                message={message}
-                onValidated={formData => subscribe(formData)} />
-            )} />
-        </div></>
-)}
-
       <div className="editorContainer">
             <a href="https://bankless-publishingj.sanity.studio/desk" target="_blank" rel="noreferrer">
               <h6 className="editorText">Editors</h6>
